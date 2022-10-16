@@ -72,6 +72,8 @@ namespace Homework3_BestOil
             txtbox_Umimi_qiymet.Text = UmumiMeblegBenzin.ToString();
         }
 
+      
+
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             txt_hot_say.Enabled = true;
@@ -137,16 +139,9 @@ namespace Homework3_BestOil
 
         private void button1_Click(object sender, EventArgs e)
         {
-            double.TryParse(hot_qiymet.Text, out double hot_Qiymet);
-            int.TryParse(txt_hot_say.Text, out int hot_say);
-            double.TryParse(gambur_qiymet.Text, out double Gambur_Qiymet);
-            int.TryParse(txt_gambur_say.Text, out int gambur_say);
-            double.TryParse(kartof_qiymet.Text, out double Kartof_qiymet);
-            int.TryParse(txt_kartof_say.Text, out int kartof_say);
-            double.TryParse(cola_qiymet.Text, out double Cola_qiymet);
-            int.TryParse(txt_cola_say.Text, out int cola_say);
-
-
+            double hot_Qiymet, Gambur_Qiymet, Kartof_qiymet, Cola_qiymet;
+            int hot_say, gambur_say, kartof_say, cola_say;
+            Qiymetler(out hot_Qiymet, out hot_say, out Gambur_Qiymet, out gambur_say, out Kartof_qiymet, out kartof_say, out Cola_qiymet, out cola_say);
 
             UmumiMeblegKafe = (Cola_qiymet * cola_say) + (hot_Qiymet * hot_say) + (Gambur_Qiymet * gambur_say) + (Kartof_qiymet * kartof_say);
             txt_kafe_umumi.Text = UmumiMeblegKafe.ToString();
@@ -157,9 +152,18 @@ namespace Homework3_BestOil
             txt_pay.Text = (UmumiMeblegBenzin + UmumiMeblegKafe).ToString();
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
 
+
+        private void Qiymetler(out double hot_Qiymet, out int hot_say, out double Gambur_Qiymet, out int gambur_say, out double Kartof_qiymet, out int kartof_say, out double Cola_qiymet, out int cola_say)
+        {
+            double.TryParse(hot_qiymet.Text, out hot_Qiymet);
+            int.TryParse(txt_hot_say.Text, out hot_say);
+            double.TryParse(gambur_qiymet.Text, out Gambur_Qiymet);
+            int.TryParse(txt_gambur_say.Text, out gambur_say);
+            double.TryParse(kartof_qiymet.Text, out Kartof_qiymet);
+            int.TryParse(txt_kartof_say.Text, out kartof_say);
+            double.TryParse(cola_qiymet.Text, out Cola_qiymet);
+            int.TryParse(txt_cola_say.Text, out cola_say);
         }
     }
 }
